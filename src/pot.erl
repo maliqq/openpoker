@@ -151,7 +151,8 @@ add_bet(Pot, Player, Amount, IsAllIn) when is_record(Pot, pot) ->
 
 allocate_bet(SidePots, Player, Amount) when is_list(SidePots) ->
 %% Sample of mapfoldl
-%% lists:mapfoldl(fun(X, Sum) -> {2*X, X+Sum} end, 0, [1,2,3,4,5])
+%% CODE: lists:mapfoldl(fun(X, Sum) -> {2*X, X+Sum} end, 0, [1,2,3,4,5])
+%% RESULT: {[2,4,6,8,10],15}
     lists:mapfoldl(fun(Pot, Unallocated) ->
                            add_bet(Pot, Player, Unallocated)
                    end, 
